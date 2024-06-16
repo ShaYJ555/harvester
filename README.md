@@ -8,13 +8,6 @@
 **使用两个esp32配合5颗drv8825来实现功能控制**
 ![esp32](/source/lolin32_lite.png)
 
-<div>
-  <iframe src="hardware/machine_base_board/bom/ibom.html" width="100%" height="600px">
-    Your browser does not support iframes.
-  </iframe>
-</div>
-
-
 # 软件
 > slaveboard&masterboard之间通过硬件串口2通信
 ## slaveboard
