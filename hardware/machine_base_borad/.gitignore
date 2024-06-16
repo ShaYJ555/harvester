@@ -1,0 +1,4 @@
+*.bak
+fp-info-cache
+*.kicad_pcb-bak
+machine_base_borad-backups
