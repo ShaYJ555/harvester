@@ -47,6 +47,9 @@
 #define MOTOR_PWM_RESOLUTION   8
 
 #define SERVO1 13
+
+#define SERVO1_CHANNEL     9
+
 #define SERVO2 15
 #define SERVO3 12
 
@@ -148,10 +151,14 @@ void motor_init() {
   ledcSetup(MOTOR2_IN2_CHANNEL, MOTOR_PWM_FREQ, MOTOR_PWM_RESOLUTION);
   ledcAttachPin(MOTOR2_IN2, MOTOR2_IN2_CHANNEL);
 
+  ledcSetup(SERVO1_CHANNEL, 50, 10);
+  ledcAttachPin(SERVO1, SERVO1_CHANNEL);
+
   digitalWrite(STEPPER1_DIR,HIGH);
   digitalWrite(STEPPER2_DIR,HIGH);
   digitalWrite(STEPPER3_DIR,HIGH);
-  digitalWrite(STEPPER4_DIR,HIGH);    
+  digitalWrite(STEPPER4_DIR,HIGH);
+  ledcWrite(SERVO1_CHANNEL,50);    
 }
 
 void forward(const String& state) {
@@ -226,10 +233,10 @@ void centerservo(const String& state) {
     centerservo_cmd = !centerservo_cmd;
     if (centerservo_cmd == 0)  // 转回0
     {
-      
+      ledcWrite(SERVO1_CHANNEL,50);
     } else if (centerservo_cmd == 1)  // 转180
     {
-
+      ledcWrite(SERVO1_CHANNEL,120);
     }
   }
 }
